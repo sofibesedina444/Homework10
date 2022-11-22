@@ -14,5 +14,25 @@ public class Author {
     public String getFamilyAuthorName() {
         return this.familyAuthorName;
     }
+
+    @Override
+    public String toString () {
+        String separator = " ";
+        return personalAuthorName + separator + familyAuthorName;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this.getClass() != other.getClass()) {
+            return false;
+        }
+        Author bookTwo = (Author) other;
+        return familyAuthorName.equals(bookTwo.familyAuthorName);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(familyAuthorName);
+    }
 }
 
